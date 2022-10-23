@@ -1,5 +1,14 @@
 package br.edu.infnet.appdrogaria.model.domain;
 
-public class Medicamento extends Produto {
+import java.time.LocalDateTime;
 
+public class Medicamento extends Produto {
+	public LocalDateTime fabricacao;
+	public LocalDateTime validade;
+	public boolean controlado;
+	
+	@Override
+	public String toString() {
+		return fabricacao + ";" + validade + ";" + controlado;
+	}
 }
