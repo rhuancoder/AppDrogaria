@@ -12,20 +12,22 @@ public class PedidoTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-
+		
+		System.out.println("### Cadastro de Pedidos ###");
+		
 		Pedido p1 = new Pedido();		
-		p1.data = LocalDateTime.now();
-		p1.descricao = "Pedido um";
+		p1.setData(LocalDateTime.now());
+		p1.setDescricao("Pedido um");
 		System.out.println("Pedido - " + p1);
 
 		Pedido p2 = new Pedido();
-		p2.data = LocalDateTime.now();
-		p2.descricao = "Pedido dois";
+		p2.setData(LocalDateTime.now());
+		p2.setDescricao("Pedido dois");
 		System.out.println("Pedido - " + p2);
 
 		Pedido p3 = new Pedido();
-		p3.data = LocalDateTime.now();
-		p3.descricao = "Pedido tres";
+		p3.setData(LocalDateTime.now());
+		p3.setDescricao("Pedido tres");
 		System.out.println("Pedido - " + p3);
 	}
 }
