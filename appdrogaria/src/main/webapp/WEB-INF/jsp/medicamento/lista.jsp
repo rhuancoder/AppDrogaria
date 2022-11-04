@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,8 +21,32 @@
 		</div>
 	</nav>
 	<div class="container mt-3">
-		<h3>Medicamentos: ${listagem}</h3>
-		<h3>${listagem.size()}</h3>
+		<h3>Medicamentos: ${listagem.size()}</h3>
+		
+		<table class="table">
+		    <thead>
+		      <tr>
+		        <th>Código</th>
+		        <th>Nome</th>
+		        <th>Valor</th>
+		        <th>Fabricação</th>
+		        <th>Validade</th>
+		        <th>Controlado</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		    	<c:forEach var="m" items="${listagem}">
+			      <tr>
+			        <td>${m.codigo}</td>
+			        <td>${m.nome}</td>
+			        <td>${m.valor}</td>
+			        <td>${m.fabricacao}</td>
+			        <td>${m.validade}</td>
+			        <td>${m.controlado}</td>
+			      </tr>
+		      	</c:forEach>
+		    </tbody>
+  		</table>
 	</div>
 </body>
 </html>
