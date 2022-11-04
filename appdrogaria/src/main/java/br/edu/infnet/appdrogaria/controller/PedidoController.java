@@ -1,12 +1,12 @@
-package br.edu.infnet.appdrogaria;
+package br.edu.infnet.appdrogaria.controller;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import br.edu.infnet.appdrogaria.model.domain.Beleza;
 import br.edu.infnet.appdrogaria.model.domain.Cliente;
@@ -15,13 +15,11 @@ import br.edu.infnet.appdrogaria.model.domain.Medicamento;
 import br.edu.infnet.appdrogaria.model.domain.Pedido;
 import br.edu.infnet.appdrogaria.model.domain.Produto;
 
-@Component
-public class PedidoTeste implements ApplicationRunner {
+@Controller
+public class PedidoController {
 
-	@Override
-	public void run(ApplicationArguments args) throws Exception {
-		
-		System.out.println("### Cadastro de Pedidos ###");
+	@GetMapping(value = "/pedido/lista")
+	public String telaLista(Model model) {
 		
 		Beleza b1 = new Beleza();
 		b1.setCodigo(123457); 
@@ -65,13 +63,11 @@ public class PedidoTeste implements ApplicationRunner {
 		p1.setDescricao("Pedido um");
 		p1.setMobile(false);
 		p1.setProdutos(produtosPedidoUm);
-		System.out.println("Pedido - " + p1);
 
 		Pedido p2 = new Pedido(c1);
 		p2.setDescricao("Pedido dois");
 		p2.setMobile(true);
 		p2.setProdutos(produtosDemaisPedidos);
-		System.out.println("Pedido - " + p2);
 		
 		Cliente c2 = new Cliente();
 		c2.setNome("Oliver Queen");
@@ -82,6 +78,14 @@ public class PedidoTeste implements ApplicationRunner {
 		Pedido p3 = new Pedido(c2);
 		p3.setDescricao("Pedido tres");
 		p3.setProdutos(produtosDemaisPedidos);
-		System.out.println("Pedido - " + p3);
+		
+		List<Pedido> pedidos = new ArrayList<Pedido>();
+		pedidos.add(p1);
+		pedidos.add(p2);
+		pedidos.add(p3);
+		
+		model.addAttribute("listagem", pedidos);
+		
+		return "pedido/lista";
 	}
 }
