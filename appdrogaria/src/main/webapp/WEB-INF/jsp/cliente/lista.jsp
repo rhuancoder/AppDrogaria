@@ -26,19 +26,23 @@
 		<table class="table">
 		    <thead>
 		      <tr>
+		      	<th>ID</th>
 		        <th>Nome</th>
 		        <th>CPF</th>
 		        <th>E-mail</th>
 		        <th>Telefone</th>
+		        <th></th>
 		      </tr>
 		    </thead>
 		    <tbody>
 		    	<c:forEach var="cl" items="${listagem}">
 			      <tr>
+			      	<td>${cl.id}</td>
 			        <td>${cl.nome}</td>
 			        <td>${cl.cpf}</td>
 			        <td>${cl.email}</td>
 			        <td>${cl.telefone}</td>
+			        <td><a href="/cliente/${cl.id}/excluir">excluir</a></td>
 			      </tr>
 		      	</c:forEach>
 		    </tbody>

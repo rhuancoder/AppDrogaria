@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Pedido {
+	private Integer id;
 	private String descricao;
 	private LocalDateTime data;
 	private boolean mobile;
@@ -23,6 +24,14 @@ public class Pedido {
 	@Override
 	public String toString() {
 		return descricao + ";" + data + ";" + mobile + ";" + cliente + ";" + produtos.size();
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getDescricao() {
@@ -48,7 +57,7 @@ public class Pedido {
 	public void setMobile(boolean mobile) {
 		this.mobile = mobile;
 	}
-	
+
 	public Cliente getCliente() {
 		return cliente;
 	}

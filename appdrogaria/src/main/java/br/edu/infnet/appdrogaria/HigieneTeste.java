@@ -4,6 +4,8 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.appdrogaria.controller.ClienteController;
+import br.edu.infnet.appdrogaria.controller.HigieneController;
 import br.edu.infnet.appdrogaria.model.domain.Higiene;
 
 @Component
@@ -21,6 +23,7 @@ public class HigieneTeste implements ApplicationRunner {
 		h1.setLote("123456");
 		h1.setFormato("Creme");
 		System.out.println("Higiene - " + h1);
+		HigieneController.incluir(h1);
 
 		Higiene h2 = new Higiene();
 		h2.setCodigo(849873); 
@@ -29,6 +32,7 @@ public class HigieneTeste implements ApplicationRunner {
 		h2.setLote("98765");
 		h2.setFormato("Liquido");
 		System.out.println("Higiene - " + h2);
+		HigieneController.incluir(h2);
 
 		Higiene h3 = new Higiene();
 		h3.setCodigo(647632); 
@@ -37,5 +41,6 @@ public class HigieneTeste implements ApplicationRunner {
 		h3.setLote("75830");
 		h3.setFormato("Liquido");
 		System.out.println("Higiene - " + h3);
+		HigieneController.incluir(h3);
 	}
 }

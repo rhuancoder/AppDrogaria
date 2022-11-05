@@ -26,17 +26,21 @@
 		<table class="table">
 		    <thead>
 		      <tr>
+		      	<th>ID</th>
 		        <th>Código</th>
 		        <th>Nome</th>
 		        <th>Valor</th>
+		        <th></th>
 		      </tr>
 		    </thead>
 		    <tbody>
 		    	<c:forEach var="p" items="${listagem}">
 			      <tr>
+			        <td>${p.id}</td>
 			        <td>${p.codigo}</td>
 			        <td>${p.nome}</td>
 			        <td>${p.valor}</td>
+			        <td><a href="/produto/${p.id}/excluir">excluir</a></td>
 			      </tr>
 		      	</c:forEach>
 		    </tbody>

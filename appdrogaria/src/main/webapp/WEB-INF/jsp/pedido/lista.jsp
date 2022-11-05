@@ -26,21 +26,25 @@
 		<table class="table">
 		    <thead>
 		      <tr>
+		      	<th>ID</th>
 		        <th>Descrição</th>
 		        <th>Data</th>
 		        <th>Mobile</th>
 		        <th>Cliente</th>
 		        <th>Produtos</th>
+		        <th></th>
 		      </tr>
 		    </thead>
 		    <tbody>
 		    	<c:forEach var="p" items="${listagem}">
 			      <tr>
+			      	<td>${p.id}</td>
 			        <td>${p.descricao}</td>
 			        <td>${p.data}</td>
 			        <td>${p.mobile}</td>
 			        <td>${p.cliente}</td>
 			        <td>${p.produtos.size()}</td>
+			        <td><a href="/pedido/${p.id}/excluir">excluir</a></td>
 			      </tr>
 		      	</c:forEach>
 		    </tbody>

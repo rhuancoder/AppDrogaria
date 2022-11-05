@@ -1,15 +1,24 @@
 package br.edu.infnet.appdrogaria.model.domain;
 
 public abstract class Produto {
+	private Integer id;
 	private long codigo;
 	private String nome;
 	private double valor;
 	
 	@Override
 	public String toString() {
-		return codigo + ";" + nome + ";" + valor;
+		return id + ";" + codigo + ";" + nome + ";" + valor;
 	}
-	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public long getCodigo() {
 		return codigo;
 	}
