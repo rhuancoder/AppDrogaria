@@ -2,6 +2,11 @@ package br.edu.infnet.appdrogaria.model.domain;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tmedicamento")
 public class Medicamento extends Produto {
 	private LocalDateTime fabricacao;
 	private LocalDateTime validade;

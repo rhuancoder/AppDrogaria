@@ -1,45 +1,29 @@
 package br.edu.infnet.appdrogaria.controller;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import br.edu.infnet.appdrogaria.model.domain.Produto;
+import br.edu.infnet.appdrogaria.model.service.ProdutoService;
 
 @Controller
 public class ProdutoController {
 
-	private static Map<Integer, Produto> mapa = new HashMap<Integer, Produto>();
-	private static Integer id = 1;
-	
-	public static void incluir(Produto produto) {
-		produto.setId(id++);
-		mapa.put(produto.getId(), produto);
-	}
-	
-	public static void excluir(Integer id) {
-		mapa.remove(id);
-	}
-	
-	public static Collection<Produto> obterLista(){
-		return mapa.values();
-	}
+	@Autowired
+	private ProdutoService produtoService;
 	
 	@GetMapping(value = "/produto/lista")
 	public String telaLista(Model model) {
-		model.addAttribute("listagem", obterLista());
+		model.addAttribute("listagem", produtoService.obterLista());
 		
 		return "produto/lista";
 	}
 	
 	@GetMapping(value = "/produto/{id}/excluir")
 	public String exclusao(@PathVariable Integer id) {
-		excluir(id);
+		produtoService.excluir(id);
 		
 		return "redirect:/produto/lista";
 	}

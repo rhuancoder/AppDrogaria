@@ -1,5 +1,10 @@
 package br.edu.infnet.appdrogaria.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "thigiene")
 public class Higiene extends Produto {
 	private String lote;
 	private String formato;

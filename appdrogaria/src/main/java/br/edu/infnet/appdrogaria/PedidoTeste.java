@@ -4,22 +4,25 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appdrogaria.controller.MedicamentoController;
-import br.edu.infnet.appdrogaria.controller.PedidoController;
 import br.edu.infnet.appdrogaria.model.domain.Beleza;
 import br.edu.infnet.appdrogaria.model.domain.Cliente;
 import br.edu.infnet.appdrogaria.model.domain.Higiene;
 import br.edu.infnet.appdrogaria.model.domain.Medicamento;
 import br.edu.infnet.appdrogaria.model.domain.Pedido;
 import br.edu.infnet.appdrogaria.model.domain.Produto;
+import br.edu.infnet.appdrogaria.model.service.PedidoService;
 
 @Component
 public class PedidoTeste implements ApplicationRunner {
 
+	@Autowired
+	private PedidoService pedidoService;
+	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
@@ -68,14 +71,14 @@ public class PedidoTeste implements ApplicationRunner {
 		p1.setMobile(false);
 		p1.setProdutos(produtosPedidoUm);
 		System.out.println("Pedido - " + p1);
-		PedidoController.incluir(p1);
+		pedidoService.incluir(p1);
 
 		Pedido p2 = new Pedido(c1);
 		p2.setDescricao("Pedido dois");
 		p2.setMobile(true);
 		p2.setProdutos(produtosDemaisPedidos);
 		System.out.println("Pedido - " + p2);
-		PedidoController.incluir(p2);
+		pedidoService.incluir(p2);
 		
 		Cliente c2 = new Cliente();
 		c2.setNome("Oliver Queen");
@@ -87,6 +90,6 @@ public class PedidoTeste implements ApplicationRunner {
 		p3.setDescricao("Pedido tres");
 		p3.setProdutos(produtosDemaisPedidos);
 		System.out.println("Pedido - " + p3);
-		PedidoController.incluir(p3);
+		pedidoService.incluir(p3);
 	}
 }

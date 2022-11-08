@@ -1,19 +1,23 @@
 package br.edu.infnet.appdrogaria;
 
 import java.time.LocalDateTime;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appdrogaria.controller.PedidoController;
-import br.edu.infnet.appdrogaria.controller.ProdutoController;
 import br.edu.infnet.appdrogaria.model.domain.Beleza;
 import br.edu.infnet.appdrogaria.model.domain.Higiene;
 import br.edu.infnet.appdrogaria.model.domain.Medicamento;
+import br.edu.infnet.appdrogaria.model.service.ProdutoService;
 
 @Component
 public class ProdutoTeste implements ApplicationRunner {
 
+	@Autowired
+	private ProdutoService produtoService;
+	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 
@@ -27,7 +31,7 @@ public class ProdutoTeste implements ApplicationRunner {
 		b1.setFabricante("Loreal");
 		b1.setPeso(0.0390);
 		System.out.println("Beleza - " + b1);
-		ProdutoController.incluir(b1);
+		produtoService.incluir(b1);
 		
 		Medicamento m1 = new Medicamento();
 		m1.setCodigo(123456); 
@@ -37,7 +41,7 @@ public class ProdutoTeste implements ApplicationRunner {
 		m1.setValidade(LocalDateTime.now().plusYears(1));
 		m1.setControlado(false);
 		System.out.println("Medicamento - " + m1);
-		ProdutoController.incluir(m1);
+		produtoService.incluir(m1);
 		
 		Higiene h1 = new Higiene();
 		h1.setCodigo(123458); 
@@ -46,6 +50,6 @@ public class ProdutoTeste implements ApplicationRunner {
 		h1.setLote("123456");
 		h1.setFormato("Creme");
 		System.out.println("Higiene - " + h1);
-		ProdutoController.incluir(h1);
+		produtoService.incluir(h1);
 	}
 }

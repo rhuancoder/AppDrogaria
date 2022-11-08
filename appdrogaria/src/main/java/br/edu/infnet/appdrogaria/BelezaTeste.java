@@ -1,15 +1,19 @@
 package br.edu.infnet.appdrogaria;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appdrogaria.controller.BelezaController;
 import br.edu.infnet.appdrogaria.model.domain.Beleza;
+import br.edu.infnet.appdrogaria.model.service.BelezaService;
 
 @Component
 public class BelezaTeste implements ApplicationRunner {
 
+	@Autowired
+	private BelezaService belezaService;
+	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 
@@ -23,7 +27,7 @@ public class BelezaTeste implements ApplicationRunner {
 		b1.setFabricante("Loreal");
 		b1.setPeso(0.0390);
 		System.out.println("Beleza - " + b1);
-		BelezaController.incluir(b1);
+		belezaService.incluir(b1);
 
 		Beleza b2 = new Beleza();
 		b2.setCodigo(157378); 
@@ -33,7 +37,7 @@ public class BelezaTeste implements ApplicationRunner {
 		b2.setFabricante("Loreal");
 		b2.setPeso(0.0580);
 		System.out.println("Beleza - " + b2);
-		BelezaController.incluir(b2);
+		belezaService.incluir(b2);
 
 		Beleza b3 = new Beleza();
 		b3.setCodigo(958473); 
@@ -43,6 +47,6 @@ public class BelezaTeste implements ApplicationRunner {
 		b3.setFabricante("Vult");
 		b3.setPeso(0.0350);
 		System.out.println("Beleza - " + b3);
-		BelezaController.incluir(b3);
+		belezaService.incluir(b3);
 	}
 }

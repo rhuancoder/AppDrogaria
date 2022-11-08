@@ -1,16 +1,19 @@
 package br.edu.infnet.appdrogaria;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appdrogaria.controller.BelezaController;
-import br.edu.infnet.appdrogaria.controller.ClienteController;
 import br.edu.infnet.appdrogaria.model.domain.Cliente;
+import br.edu.infnet.appdrogaria.model.service.ClienteService;
 
 @Component
 public class ClienteTeste implements ApplicationRunner {
 
+	@Autowired
+	private ClienteService clienteService;
+	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 
@@ -22,7 +25,7 @@ public class ClienteTeste implements ApplicationRunner {
 		c1.setEmail("bruce.wayne@dccomics.com");
 		c1.setTelefone("41999999999");
 		System.out.println("Cliente - " + c1);
-		ClienteController.incluir(c1);
+		clienteService.incluir(c1);
 
 		Cliente c2 = new Cliente();
 		c2.setNome("Oliver Queen");
@@ -30,7 +33,7 @@ public class ClienteTeste implements ApplicationRunner {
 		c2.setEmail("oliver.queen@dccomics.com");
 		c2.setTelefone("41988888888");
 		System.out.println("Cliente - " + c2);
-		ClienteController.incluir(c2);
+		clienteService.incluir(c2);
 
 		Cliente c3 = new Cliente();
 		c3.setNome("Clark Kent");
@@ -38,6 +41,6 @@ public class ClienteTeste implements ApplicationRunner {
 		c3.setEmail("clark.kent@dccomics.com");
 		c3.setTelefone("41987777777");
 		System.out.println("Cliente - " + c3);
-		ClienteController.incluir(c3);
+		clienteService.incluir(c3);
 	}
 }

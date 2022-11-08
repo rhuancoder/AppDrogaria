@@ -1,5 +1,10 @@
 package br.edu.infnet.appdrogaria.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tbeleza")
 public class Beleza extends Produto {
 	private String marca;
 	private String fabricante;
