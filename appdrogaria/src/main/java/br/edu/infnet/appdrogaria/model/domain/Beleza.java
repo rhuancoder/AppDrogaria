@@ -1,6 +1,8 @@
 package br.edu.infnet.appdrogaria.model.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -9,6 +11,9 @@ public class Beleza extends Produto {
 	private String marca;
 	private String fabricante;
 	private double peso;
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
 	
 	@Override
 	public String toString() {
@@ -37,5 +42,13 @@ public class Beleza extends Produto {
 
 	public void setPeso(double peso) {
 		this.peso = peso;
+	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 }

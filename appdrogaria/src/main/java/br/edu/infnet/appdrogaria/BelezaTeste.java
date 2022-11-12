@@ -3,11 +3,14 @@ package br.edu.infnet.appdrogaria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appdrogaria.model.domain.Beleza;
+import br.edu.infnet.appdrogaria.model.domain.Usuario;
 import br.edu.infnet.appdrogaria.model.service.BelezaService;
 
+@Order(5)
 @Component
 public class BelezaTeste implements ApplicationRunner {
 
@@ -19,6 +22,9 @@ public class BelezaTeste implements ApplicationRunner {
 
 		System.out.println("### Cadastro de produtos de Beleza ###");
 		
+		Usuario usuario = new Usuario();
+		usuario.setId(1);
+		
 		Beleza b1 = new Beleza();
 		b1.setCodigo(123457); 
 		b1.setNome("Esmalte");
@@ -26,6 +32,7 @@ public class BelezaTeste implements ApplicationRunner {
 		b1.setMarca("Colorama");
 		b1.setFabricante("Loreal");
 		b1.setPeso(0.0390);
+		b1.setUsuario(usuario);
 		System.out.println("Beleza - " + b1);
 		belezaService.incluir(b1);
 
@@ -36,6 +43,7 @@ public class BelezaTeste implements ApplicationRunner {
 		b2.setMarca("Casting Creme Gloss");
 		b2.setFabricante("Loreal");
 		b2.setPeso(0.0580);
+		b2.setUsuario(usuario);
 		System.out.println("Beleza - " + b2);
 		belezaService.incluir(b2);
 
@@ -46,6 +54,7 @@ public class BelezaTeste implements ApplicationRunner {
 		b3.setMarca("Vult");
 		b3.setFabricante("Vult");
 		b3.setPeso(0.0350);
+		b3.setUsuario(usuario);
 		System.out.println("Beleza - " + b3);
 		belezaService.incluir(b3);
 	}

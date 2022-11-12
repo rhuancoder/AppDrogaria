@@ -1,35 +1,44 @@
 package br.edu.infnet.appdrogaria.model.domain;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "tmedicamento")
 public class Medicamento extends Produto {
-	private LocalDateTime fabricacao;
-	private LocalDateTime validade;
+	@DateTimeFormat(pattern="dd/MM/yyyy")
+	private LocalDate fabricacao;
+	@DateTimeFormat(pattern="dd/MM/yyyy")
+	private LocalDate validade;
 	private boolean controlado;
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
 	
 	@Override
 	public String toString() {
 		return super.toString() + ";" + fabricacao + ";" + validade + ";" + controlado;
 	}
 
-	public LocalDateTime getFabricacao() {
+	public LocalDate getFabricacao() {
 		return fabricacao;
 	}
 
-	public void setFabricacao(LocalDateTime fabricacao) {
+	public void setFabricacao(LocalDate fabricacao) {
 		this.fabricacao = fabricacao;
 	}
 
-	public LocalDateTime getValidade() {
+	public LocalDate getValidade() {
 		return validade;
 	}
 
-	public void setValidade(LocalDateTime validade) {
+	public void setValidade(LocalDate validade) {
 		this.validade = validade;
 	}
 
@@ -39,5 +48,13 @@ public class Medicamento extends Produto {
 
 	public void setControlado(boolean controlado) {
 		this.controlado = controlado;
+	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 }

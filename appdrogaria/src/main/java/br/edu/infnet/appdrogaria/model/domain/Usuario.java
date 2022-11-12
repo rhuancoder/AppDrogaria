@@ -1,30 +1,31 @@
 package br.edu.infnet.appdrogaria.model.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tcliente")
-public class Cliente {
+@Table(name = "tusuario")
+public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	private String cpf;
 	private String email;
-	private String telefone;
-	@ManyToOne
+	private String senha;
+	@OneToMany
 	@JoinColumn(name = "idUsuario")
-	private Usuario usuario;
+	private List<Cliente> clientes;
 
 	@Override
 	public String toString() {
-		return nome + ";" + cpf + ";" + email + ";" + telefone;
+		return id + ";" + nome + ";" + email + ";" + senha;
 	}
 
 	public Integer getId() {
@@ -43,14 +44,6 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -59,19 +52,19 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public String getTelefone() {
-		return telefone;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-	
-	public Usuario getUsuario() {
-		return usuario;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public List<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
 	}
 }

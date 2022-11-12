@@ -1,12 +1,13 @@
 package br.edu.infnet.appdrogaria;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appdrogaria.model.domain.Beleza;
@@ -15,8 +16,10 @@ import br.edu.infnet.appdrogaria.model.domain.Higiene;
 import br.edu.infnet.appdrogaria.model.domain.Medicamento;
 import br.edu.infnet.appdrogaria.model.domain.Pedido;
 import br.edu.infnet.appdrogaria.model.domain.Produto;
+import br.edu.infnet.appdrogaria.model.domain.Usuario;
 import br.edu.infnet.appdrogaria.model.service.PedidoService;
 
+@Order(2)
 @Component
 public class PedidoTeste implements ApplicationRunner {
 
@@ -28,6 +31,9 @@ public class PedidoTeste implements ApplicationRunner {
 		
 		System.out.println("### Cadastro de Pedidos ###");
 		
+		Usuario usuario = new Usuario();
+		usuario.setId(1);
+		
 		Beleza b1 = new Beleza();
 		b1.setCodigo(123457); 
 		b1.setNome("Esmalte");
@@ -35,14 +41,16 @@ public class PedidoTeste implements ApplicationRunner {
 		b1.setMarca("Colorama");
 		b1.setFabricante("Loreal");
 		b1.setPeso(0.0390);
+		b1.setUsuario(usuario);
 		
 		Medicamento m1 = new Medicamento();
 		m1.setCodigo(123456); 
 		m1.setNome("Xarope");
 		m1.setValor(30.90);
-		m1.setFabricacao(LocalDateTime.now());
-		m1.setValidade(LocalDateTime.now().plusYears(1));
+		m1.setFabricacao(LocalDate.now());
+		m1.setValidade(LocalDate.now().plusYears(1));
 		m1.setControlado(false);
+		m1.setUsuario(usuario);
 		
 		Higiene h1 = new Higiene();
 		h1.setCodigo(123458); 
@@ -50,12 +58,14 @@ public class PedidoTeste implements ApplicationRunner {
 		h1.setValor(9.99);
 		h1.setLote("123456");
 		h1.setFormato("Creme");
+		h1.setUsuario(usuario);
 		
 		Cliente c1 = new Cliente();
 		c1.setNome("Bruce Wayne");
 		c1.setCpf("12345678901");
 		c1.setEmail("bruce.wayne@dccomics.com");
 		c1.setTelefone("41999999999");
+		c1.setUsuario(usuario);
 		
 		List<Produto> produtosPedidoUm = new ArrayList<Produto>();
 		produtosPedidoUm.add(h1);

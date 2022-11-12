@@ -1,10 +1,11 @@
 package br.edu.infnet.appdrogaria;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appdrogaria.model.domain.Beleza;
@@ -12,6 +13,7 @@ import br.edu.infnet.appdrogaria.model.domain.Higiene;
 import br.edu.infnet.appdrogaria.model.domain.Medicamento;
 import br.edu.infnet.appdrogaria.model.service.ProdutoService;
 
+@Order(4)
 @Component
 public class ProdutoTeste implements ApplicationRunner {
 
@@ -37,8 +39,8 @@ public class ProdutoTeste implements ApplicationRunner {
 		m1.setCodigo(123456); 
 		m1.setNome("Xarope");
 		m1.setValor(30.90);
-		m1.setFabricacao(LocalDateTime.now());
-		m1.setValidade(LocalDateTime.now().plusYears(1));
+		m1.setFabricacao(LocalDate.now());
+		m1.setValidade(LocalDate.now().plusYears(1));
 		m1.setControlado(false);
 		System.out.println("Medicamento - " + m1);
 		produtoService.incluir(m1);

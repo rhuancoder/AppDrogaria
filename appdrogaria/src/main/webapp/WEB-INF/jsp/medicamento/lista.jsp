@@ -4,25 +4,14 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<title>Cadastro de Medicamentos</title>
 </head>
 <body>
-	<nav class="navbar navbar-expand-sm bg-success navbar-dark">
-		<div class="container-fluid">
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link active" href="/pedido/lista">Pedido</a></li>
-				<li class="nav-item"><a class="nav-link active" href="/produto/lista">Produto</a></li>
-				<li class="nav-item"><a class="nav-link active" href="/medicamento/lista">Medicamento</a></li>
-				<li class="nav-item"><a class="nav-link active" href="/beleza/lista">Beleza</a></li>
-				<li class="nav-item"><a class="nav-link active" href="/higiene/lista">Higiene</a></li>
-				<li class="nav-item"><a class="nav-link active" href="/cliente/lista">Cliente</a></li>
-			</ul>
-		</div>
-	</nav>
+	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	<div class="container mt-3">
 		<h3>Medicamentos: ${listagem.size()}</h3>
-		
+		<h4><a href="/medicamento">Novo medicamento</a></h4>
 		<table class="table">
 		    <thead>
 		      <tr>
