@@ -4,10 +4,10 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-color" style="background-color: paleturquoise;">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">AppDrogaria</a>
+      <a class="navbar-brand" href="/">AppDrogaria</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li class="active"><a href="/">Home</a></li>
 	  <c:if test="${not empty user}">
 	      <li class="nav-item"><a class="nav-link active" href="/usuario/lista">Usuário</a></li>
 	      <li class="nav-item"><a class="nav-link active" href="/pedido/lista">Pedido</a></li>

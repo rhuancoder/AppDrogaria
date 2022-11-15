@@ -9,5 +9,8 @@
 </head>
 <body>
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
+	<div align="center">
+  		<img src="https://img.icons8.com/external-kiranshastry-gradient-kiranshastry/512/external-drugs-medical-kiranshastry-gradient-kiranshastry.png">
+    </div>
 </body>
 </html>

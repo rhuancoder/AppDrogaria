@@ -14,14 +14,22 @@
 		<form action="/medicamento/incluir" method="post">
 		    <c:import url="/WEB-INF/jsp/produto/cadastroparcial.jsp"/>
 			<div class="form-group">
-				<label>Validade:</label> <input type="text" class="form-control" placeholder="Entre com a validade" name="validade">
+				<label>Validade:</label> <input type="text" class="form-control" placeholder="Entre com a validade no formato DD/MM/AAAA" name="validade">
 			</div>
 			<div class="form-group">
-				<label>Fabricação:</label> <input type="text" class="form-control" placeholder="Entre com a fabricação" name="fabricacao">
+				<label>Fabricação:</label> <input type="text" class="form-control" placeholder="Entre com a fabricação no formato DD/MM/AAAA" name="fabricacao">
 			</div>
 			<div class="form-group">
-				<label>Controlado:</label> <input type="checkbox" class="form-control" name="controlado">
-			</div>
+		      <label>Tipo:</label>
+				<div class="form-check">
+				  <input type="radio" class="form-check-input" name="controlado" value="false"> Livre
+				  <label class="form-check-label"></label>
+				</div>
+				<div class="form-check">
+				  <input type="radio" class="form-check-input" name="controlado" value="true"> Controlado
+				  <label class="form-check-label"></label>
+				</div>
+	    	</div>
 			<button type="submit" class="btn btn-default">Cadastrar</button>
 		</form>
 	</div>

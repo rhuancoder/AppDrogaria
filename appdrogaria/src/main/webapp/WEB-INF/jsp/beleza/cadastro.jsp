@@ -20,7 +20,7 @@
 				<label>Fabricante:</label> <input type="text" class="form-control" placeholder="Entre com o fabricante" name="fabricante">
 			</div>
 			<div class="form-group">
-				<label>Peso:</label> <input type="text" class="form-control" placeholder="Entre com o peso" name="peso">
+				<label>Peso:</label> <input type="text" class="form-control" placeholder="Entre com o peso no formato 0.00" name="peso">
 			</div>
 			<button type="submit" class="btn btn-default">Cadastrar</button>
 		</form>

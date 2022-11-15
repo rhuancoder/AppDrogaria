@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.edu.infnet.appdrogaria.model.domain.Usuario;
+import br.edu.infnet.appdrogaria.model.service.EnderecoService;
 import br.edu.infnet.appdrogaria.model.service.UsuarioService;
 
 @Controller
@@ -16,6 +17,8 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioService usuarioService;
+	@Autowired
+	private EnderecoService enderecoService;
 
 	@GetMapping(value = "/usuario/lista")
 	public String telaLista(Model model) {
@@ -31,7 +34,7 @@ public class UsuarioController {
 
 	@PostMapping(value = "/cep")
 	public String obterCep(Model model, @RequestParam String cep){
-		model.addAttribute("endereco", usuarioService.obterCep(cep));
+		model.addAttribute("endereco", enderecoService.obterCep(cep));
 
 		return "usuario/cadastro";
 	}

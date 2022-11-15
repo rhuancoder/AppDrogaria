@@ -11,7 +11,6 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	<div class="container mt-3">
 		<h3>Produtos: ${listagem.size()}</h3>
-		<h4><a href="/produto">Novo produto</a></h4>
 		<table class="table">
 		    <thead>
 		      <tr>
