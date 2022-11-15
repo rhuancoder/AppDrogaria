@@ -3,8 +3,6 @@ package br.edu.infnet.appdrogaria.model.domain;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -17,9 +15,6 @@ public class Medicamento extends Produto {
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private LocalDate validade;
 	private boolean controlado;
-	@ManyToOne
-	@JoinColumn(name = "idUsuario")
-	private Usuario usuario;
 	
 	@Override
 	public String toString() {
@@ -48,13 +43,5 @@ public class Medicamento extends Produto {
 
 	public void setControlado(boolean controlado) {
 		this.controlado = controlado;
-	}
-	
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 }

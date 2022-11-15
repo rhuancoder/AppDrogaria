@@ -12,7 +12,7 @@ import br.edu.infnet.appdrogaria.model.domain.Medicamento;
 import br.edu.infnet.appdrogaria.model.domain.Usuario;
 import br.edu.infnet.appdrogaria.model.service.MedicamentoService;
 
-@Order(7)
+@Order(6)
 @Component
 public class MedicamentoTeste implements ApplicationRunner {
 

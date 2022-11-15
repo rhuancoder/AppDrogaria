@@ -10,7 +10,7 @@ import br.edu.infnet.appdrogaria.model.domain.Higiene;
 import br.edu.infnet.appdrogaria.model.domain.Usuario;
 import br.edu.infnet.appdrogaria.model.service.HigieneService;
 
-@Order(6)
+@Order(5)
 @Component
 public class HigieneTeste implements ApplicationRunner {
 

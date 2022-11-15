@@ -9,9 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tpedido")
@@ -22,9 +23,10 @@ public class Pedido {
 	private String descricao;
 	private LocalDateTime data;
 	private boolean mobile;
-	@Transient
+	@OneToOne(cascade = CascadeType.DETACH)
+	@JoinColumn(name = "idCliente")
 	private Cliente cliente;
-	@Transient
+	@ManyToMany(cascade = CascadeType.DETACH)
 	private List<Produto> produtos;
 	@ManyToOne
 	@JoinColumn(name = "idUsuario")

@@ -10,7 +10,7 @@ import br.edu.infnet.appdrogaria.model.domain.Cliente;
 import br.edu.infnet.appdrogaria.model.domain.Usuario;
 import br.edu.infnet.appdrogaria.model.service.ClienteService;
 
-@Order(3)
+@Order(2)
 @Component
 public class ClienteTeste implements ApplicationRunner {
 

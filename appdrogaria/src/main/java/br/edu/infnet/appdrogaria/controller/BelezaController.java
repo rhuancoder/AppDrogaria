@@ -40,7 +40,7 @@ public class BelezaController {
 	}
 	
 	@GetMapping(value = "/beleza/{id}/excluir")
-	public String exclusao(@PathVariable Integer id) {
+	public String excluir(@PathVariable Integer id) {
 		belezaService.excluir(id);
 		
 		return "redirect:/beleza/lista";

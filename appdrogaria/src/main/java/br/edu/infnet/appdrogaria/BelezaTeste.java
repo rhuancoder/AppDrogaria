@@ -10,7 +10,7 @@ import br.edu.infnet.appdrogaria.model.domain.Beleza;
 import br.edu.infnet.appdrogaria.model.domain.Usuario;
 import br.edu.infnet.appdrogaria.model.service.BelezaService;
 
-@Order(5)
+@Order(4)
 @Component
 public class BelezaTeste implements ApplicationRunner {
 

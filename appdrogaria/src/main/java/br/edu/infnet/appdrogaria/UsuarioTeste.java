@@ -25,5 +25,11 @@ public class UsuarioTeste implements ApplicationRunner {
 		u1.setNome("Administrador");
 		u1.setSenha("123");
 		usuarioService.incluir(u1);
+		
+		Usuario u2 = new Usuario();
+		u2.setEmail("tester@tester.com");
+		u2.setNome("Tester");
+		u2.setSenha("123");
+		usuarioService.incluir(u2);
 	}
 }
